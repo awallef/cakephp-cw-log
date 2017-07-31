@@ -12,13 +12,12 @@ class CloudwatchLog extends BaseLog
   protected $_defaultConfig = [
     // BaseLog...
     'levels' => [],
-    'scopes' => []
+    'scopes' => [],
 
     // Cloudwatch
-    'groupName' => 'php-logtest',
-    'streamName' => 'ec2-instance-1',
-    'retentionDays' => '14' // days...
-    'tags' => [],
+    'groupName' => 'ec2-instance-1',
+    'streamName' => 'my-php-app-log-test',
+    'retentionDays' => '14', // days...
 
     // aws
     'aws' => [
@@ -54,7 +53,7 @@ class CloudwatchLog extends BaseLog
   public function handler()
   {
     if(!$this->_handler)
-      $this->_handler = new CloudWatch($this->client(), $this->config('groupName'), $this->config('streamName'), $this->config('retentionDays'), 10000, $this->config('tags'));
+  $this->_handler = new CloudWatch($this->client(), $this->config('groupName'), $this->config('streamName'), $this->config('retentionDays'), 10000);
     return $this->_handler;
   }
 

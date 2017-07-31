@@ -11,50 +11,46 @@ The recommended way to install composer packages is:
 
 ## Log settings
 Configure the engine in app.php like follow:
-	
+
 	...
 	'Log' => [
         'debug' => [
 			'className' => 'Awallef\CWL\Log\Engine\CloudwatchLog',
 			'levels' => ['notice', 'info', 'debug'],
-			
+
 			// Cloudwatch
-			'groupName' => 'php-debug-logtest',
-			'streamName' => 'ec2-instance-1',
-			'retentionDays' => '14' // days...
-			'tags' => [],
-				
-			// aws
-			'aws' => [
-			  'region' => 'eu-west-1',
-			  'version' => 'latest',
-			  'credentials' => [
-			    'key' => 'your AWS key',
-			    'secret' => 'your AWS secret',
-			    //'token' => 'your AWS session token',
-			  ]
-			]
+	    'groupName' => 'ec2-instance-1',
+	    'streamName' => 'my-php-app-log-test',
+	    'retentionDays' => '14', // days...
+
+	    // aws
+	    'aws' => [
+	      'region' => 'eu-west-1',
+	      'version' => 'latest',
+	      'credentials' => [
+	        'key' => 'your AWS key',
+	        'secret' => 'your AWS secret',
+	      ]
+	    ]
         ],
         'error' => [
 			'className' => 'Awallef\CWL\Log\Engine\CloudwatchLog',
-			'levels' => ['notice', 'info', 'debug'],
-			
+			'levels' => ['warning', 'error', 'critical', 'alert', 'emergency'],
+
 			// Cloudwatch
-			'groupName' => 'php-error-logtest',
-			'streamName' => 'ec2-instance-1',
-			'retentionDays' => '14' // days...
-			'tags' => [],
-				
-			// aws
-			'aws' => [
-			  'region' => 'eu-west-1',
-			  'version' => 'latest',
-			  'credentials' => [
-			    'key' => 'your AWS key',
-			    'secret' => 'your AWS secret',
-			    //'token' => 'your AWS session token',
-			  ]
-			]
+	    'groupName' => 'ec2-instance-1',
+	    'streamName' => 'my-php-app-log-test',
+	    'retentionDays' => '14', // days...
+
+	    // aws
+	    'aws' => [
+	      'region' => 'eu-west-1',
+	      'version' => 'latest',
+	      'credentials' => [
+	        'key' => 'your AWS key',
+	        'secret' => 'your AWS secret',
+	      ]
+	    ]
         ],
     ],
     ...
