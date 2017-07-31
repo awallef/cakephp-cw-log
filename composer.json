@@ -1,0 +1,24 @@
+{
+  "name": "awallef/cakephp-cw-log",
+  "description": "CakePHP log in aws cloudwatch",
+  "type": "cakephp-plugin",
+  "require": {
+    "php": ">=5.5.9",
+    "cakephp/cakephp": "^3.3",
+    "maxbanton/cwh": "^1.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Awallef\\CWL\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Awallef\\CWL\\Test\\": "tests",
+      "Cake\\Test\\": "./vendor/cakephp/cakephp/tests"
+    }
+  }
+}
