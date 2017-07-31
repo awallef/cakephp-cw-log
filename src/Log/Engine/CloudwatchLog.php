@@ -50,25 +50,25 @@ class CloudwatchLog extends BaseLog
     return $this->_client;
   }
 
-  public function handler()
+  public function handler($level)
   {
     if(!$this->_handler)
-  $this->_handler = new CloudWatch($this->client(), $this->config('groupName'), $this->config('streamName'), $this->config('retentionDays'), 10000);
+      $this->_handler = new CloudWatch($this->client(), $this->config('groupName'), $this->config('streamName'), $this->config('retentionDays'), 10000,['level' => $level]);
     return $this->_handler;
   }
 
-  public function logger()
+  public function logger($level)
   {
     if(!$this->_logger){
       $this->_logger = new Logger('default-log-channel');
-      $this->_logger->pushHandler($this->handler());
+      $this->_logger->pushHandler($this->handler($level));
     }
     return $this->_logger;
   }
 
   public function log($level, $message, array $context = [])
   {
-    $this->logger()->log($level, $message, $context);
+    $this->logger($level)->log($level, $message, $context);
     return true;
   }
 }
