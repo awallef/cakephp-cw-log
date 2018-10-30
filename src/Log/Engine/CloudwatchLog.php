@@ -21,7 +21,7 @@ class CloudwatchLog extends BaseLog
 
     // aws
     'aws' => [
-      'region' => 'eu-west-1',
+      'region' => 'eu-central-1',
       'version' => 'latest',
       'credentials' => [
         'key' => 'your AWS key',
@@ -46,14 +46,14 @@ class CloudwatchLog extends BaseLog
   public function client()
   {
     if(!$this->_client)
-      $this->_client = new CloudWatchLogsClient($this->config('aws'));
+      $this->_client = new CloudWatchLogsClient($this->getConfig('aws'));
     return $this->_client;
   }
 
   public function handler($level)
   {
     if(!$this->_handler)
-      $this->_handler = new CloudWatch($this->client(), $this->config('groupName'), $this->config('streamName'), $this->config('retentionDays'), 10000,['level' => $level]);
+      $this->_handler = new CloudWatch($this->client(), $this->getConfig('groupName'), $this->getConfig('streamName'), $this->getConfig('retentionDays'), 10000,['level' => $level]);
     return $this->_handler;
   }
 

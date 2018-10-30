@@ -19,13 +19,13 @@ Configure the engine in app.php like follow:
 			'levels' => ['notice', 'info', 'debug'],
 
 			// Cloudwatch
-	    'groupName' => 'ec2-instance-1',
+	    'groupName' => 'ec2-instance-x',
 	    'streamName' => 'my-php-app-log-test',
 	    'retentionDays' => '14', // days...
 
 	    // aws
 	    'aws' => [
-	      'region' => 'eu-west-1',
+	      'region' => 'eu-central-1',
 	      'version' => 'latest',
 	      'credentials' => [
 	        'key' => 'your AWS key',
@@ -38,13 +38,13 @@ Configure the engine in app.php like follow:
 			'levels' => ['warning', 'error', 'critical', 'alert', 'emergency'],
 
 			// Cloudwatch
-	    'groupName' => 'ec2-instance-1',
+	    'groupName' => 'ec2-instance-x',
 	    'streamName' => 'my-php-app-log-test',
 	    'retentionDays' => '14', // days...
 
 	    // aws
 	    'aws' => [
-	      'region' => 'eu-west-1',
+	      'region' => 'eu-central-1',
 	      'version' => 'latest',
 	      'credentials' => [
 	        'key' => 'your AWS key',
