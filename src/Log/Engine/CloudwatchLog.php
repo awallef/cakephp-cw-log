@@ -68,7 +68,10 @@ class CloudwatchLog extends BaseLog
 
   public function log($level, $message, array $context = [])
   {
-    $this->logger($level)->log($level, $message, $context);
+    $message = $this->_format($message, $context);
+    $output = date('Y-m-d H:i:s') . ' ' . ucfirst($level) . ': ' . $message . "\n";
+
+    $this->logger($level)->log($level, $output, $context);
     return true;
   }
 }
