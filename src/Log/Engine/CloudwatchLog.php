@@ -21,13 +21,15 @@ class CloudwatchLog extends BaseLog
 
     // aws
     'aws' => [
-      'region' => 'eu-central-1',
+/**
+      'region' => env('AWS_DEFAULT_REGION', 'eu-central-1'),
       'version' => 'latest',
       'credentials' => [
         'key' => 'your AWS key',
         'secret' => 'your AWS secret',
         //'token' => 'your AWS session token',
       ]
+*/
     ]
   ];
 
